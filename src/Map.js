@@ -1,6 +1,6 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Map, Marker, TileLayer } from "react-leaflet";
 
 const cuffs = new L.Icon({
@@ -66,7 +66,8 @@ const RenderMarks = ({ clusters, supercluster, pointsLength, mapRef }) => {
 const MapComponent = React.memo(({ setBounds, setZoom, clusters, supercluster, pointsLength, mapRef }) => {
 
     const [bounds, stBounds] = useState(null);
-    useEffect(() => setBounds(bounds), [bounds])
+    useEffect(() => setBounds(bounds), [bounds,setBounds])
+    
     const getBounds = map => {
         let bounds = map.leafletElement.getBounds()
         let nw = bounds.getNorthWest();

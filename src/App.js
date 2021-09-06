@@ -1,4 +1,3 @@
-import { Drawer, Tree } from "antd";
 import { useEffect, useRef, useState } from "react";
 import useSupercluster from "use-supercluster";
 import MapComponent, { animateTo } from "./Map";
@@ -33,7 +32,7 @@ const App = () => {
   useEffect(() => {
     if (!parentCluster && clusters.length > 0) setParentCluster(clusters);
     // only gets value at init
-  }, [clusters])
+  }, [clusters,parentCluster])
 
 
 
@@ -51,7 +50,7 @@ const App = () => {
   return <div className="page">
 
     <div className="open-drawer-button" onClick={() => openDrawer(true)}>
-      <img src="/bars.svg" />
+      <img src="/bars.svg" alt='' />
     </div>
 
     <DrawerComponent {...{
